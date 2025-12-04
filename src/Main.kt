@@ -1,21 +1,13 @@
 class Solution {
-    fun removeElement(nums: IntArray, `vall`: Int): Int {
+    fun removeDuplicates(nums: IntArray): Int {
 
-        //[1,5,7,3,9]
-
-        val sizeNums = nums.size // 4
-
-        var k = 0
-
-        for ( i in 0 until sizeNums ) {
-            if(nums[i] != vall ){
-                nums[k] = nums[i]
-                k++
-
-            }
-        }
-
+        var k = 1
+     for (i in 1 until nums.size - 1) {
+         if (nums[i] != nums[i - 1]) {
+             nums[k] = nums[i]
+             k++
+         }
+     }
         return k
-
     }
 }

@@ -1,16 +1,27 @@
 class Solution {
-    fun removeDuplicates(nums: IntArray): Int {
+    fun majorityElement(nums: IntArray): Int {
 
-        if (nums.size == 1 || nums.size == 0) {
-            return nums.size
-        }
-        var k = 2
-        for (i in 2 until nums.size) {
-            if (nums[i] != nums[k - 2]) {
-                nums[k] = nums[i]
-                k++
+
+
+      var  padeshah = nums[0]
+      var  count = 1
+
+        for (i in 1 until nums.size) {
+            if (nums[i]!=padeshah) {
+                count--
+            }else{
+                count++
             }
+            if (count ==0){
+                padeshah = nums[i]
+                count = 1
+            }
+
+
+
+
+
         }
-        return k
+        return padeshah
     }
 }

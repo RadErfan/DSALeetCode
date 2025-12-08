@@ -1,17 +1,24 @@
 class Solution {
-    fun maxProfit(prices: IntArray): Int {
+    fun canJump(nums: IntArray): Boolean {
+        var record = 0
 
-        var profit = 0
-        if (prices.isEmpty()) return 0
-       for (i in 1 until prices.size) {
+        for (i in 0 until nums.size) {
 
-           if (i!=0 && prices[i]>prices[i-1]) {
-               profit += prices[i]-prices[i-1]
-           }
-       }
+            if (i > record) {
+                return false
+            }
 
+            val cherag = i + nums[i]
 
-return profit
+            if (cherag > record) {
+                record = cherag
+            }
 
+            if (record >= nums.lastIndex) {
+                return true
+            }
+        }
+
+        return true
     }
 }

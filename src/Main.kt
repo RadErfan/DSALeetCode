@@ -1,19 +1,17 @@
-import kotlin.math.min
-
 class Solution {
     fun maxProfit(prices: IntArray): Int {
-       var minPrice = Int.MAX_VALUE
-        var maxPrice = 0
-        minPrice = prices[0]
-        for (i in prices.indices) {
 
-            if (prices[i] < minPrice) {
-                minPrice = prices[i]
-            }else if (prices[i]- minPrice > maxPrice) {
-                maxPrice = prices[i] - minPrice
-            }
-        }
+        var profit = 0
+        if (prices.isEmpty()) return 0
+       for (i in 1 until prices.size) {
 
-        return maxPrice
+           if (i!=0 && prices[i]>prices[i-1]) {
+               profit += prices[i]-prices[i-1]
+           }
+       }
+
+
+return profit
+
     }
 }
